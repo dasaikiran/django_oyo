@@ -1,0 +1,16 @@
+# Automatically normalize text files
+* text=auto
+
+# Python files use LF
+*.py text eol=lf
+
+# Frontend files use LF
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+
+# Configuration files
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
