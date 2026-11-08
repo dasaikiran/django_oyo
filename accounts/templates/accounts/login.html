@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-center">
+<form method="post" class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  {% csrf_token %}
+  <legend class="fieldset-legend text-2xl mx-auto">Login</legend>
+
+  <!-- <label class="label" for="username">Username</label>
+  <input type="text" id="username" class="input" placeholder="Username" /> -->
+
+  <label class="label" for="email">Email Address</label>
+  <input type="email" name="email" id="email" class="input" placeholder="Email Address" />
+
+  <label class="label" for="password">Password</label>
+  <input type="password" name="password" id="password" class="input" placeholder="Password" />
+  <p>Create an account..<a class="underline text-blue-900" href="{% url 'register' %}">Register</a></p>
+  <button type="submit" class="btn btn-primary mt-4">Login</button>
+  <button type="button" onclick="loginOTP()" class="btn btn-success mt-4">Login with OTP</button>
+</form>
+</div>
+
+<script>
+  function loginOTP(){
+    email = document.getElementById("email").value
+
+    if(email===""){
+      alert("Email cannot be Empty")
+      return
+    }
+    window.location = `/accounts/send-otp/${email}`
+  }
+</script>
+{% endblock %}

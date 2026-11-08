@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-center">
+<form method="post" class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  {% csrf_token %}
+  <legend class="fieldset-legend text-2xl mx-auto">Verify OTP</legend>
+  <label class="label" for="otp">OTP</label>
+  <input type="text" name="otp" id="otp" class="input" placeholder="Enter OTP" />
+  <button type="submit" class="btn btn-primary mt-4">Verify OTP</button>
+</form>
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 # Automatically normalize text files
-* text=auto
+* text=auto eol=lf
 
 # Python files use LF
 *.py text eol=lf

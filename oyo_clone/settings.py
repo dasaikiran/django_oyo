@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "home",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -131,8 +132,27 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
+# Email Configuration
+
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv(BASE_DIR / ".env")
+
 MAILERS = {
     "default": {
-        "BACKEND": "django.core.mail.backends.console.EmailBackend",
+        "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+        "OPTIONS": {
+            "host": "smtp.gmail.com",
+            "port": 587,
+            "username": os.getenv("EMAIL_HOST_USER"),
+            "password": os.getenv("EMAIL_HOST_PASSWORD"),
+            "use_tls": True,
+            "use_ssl": False,
+            "timeout": 30,
+        },
     },
 }
+
+DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST_USER")

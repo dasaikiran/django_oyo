@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-900 ">
 
     {% include "includes/navbar.html" %}
-
+    <div class="fixed inset-x-0 z-50 flex justify-center">
+    {% include "includes/alerts.html" %}
+    </div>
     <main class="container mx-auto px-4 py-8">
         {% block content %}
         {% endblock %}

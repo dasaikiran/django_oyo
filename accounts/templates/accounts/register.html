@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-center">
+<form method="post" class="fieldset bg-base-200 rounded-box w-xs border p-4">
+  {% csrf_token %}
+  <legend class="fieldset-legend text-2xl mx-auto">Register</legend>
+
+  <label class="label" for="firstname">First Name</label>
+  <input type="text" name="first_name" id="firstname" class="input" placeholder="First Name" />
+
+  <label class="label" for="lastname">Last Name</label>
+  <input type="text" name="last_name" id="lastname" class="input" placeholder="Last Name" />
+
+  <label class="label" for="username">Username</label>
+  <input type="text" name="username" id="username" class="input" placeholder="Username" />
+
+  <label class="label" for="phone_number">Phone Number</label>
+  <input type="text" name="phone_number" id="phone_number" class="input" placeholder="Phone Number" />
+
+  <label class="label" for="email">Email Address</label>
+  <input type="email" name="email" id="email" class="input" placeholder="Email Address" />
+
+  <label class="label" for="password">Password</label>
+  <input type="password" name="password" id="password" class="input" placeholder="Password" />
+
+  <p>Already have an account..<a class="underline text-blue-900" href="{% url 'login' %}">Login</a></p>
+  <button type="submit" class="btn btn-neutral mt-4">Register</button>
+</form>
+</div>
+{% endblock %}

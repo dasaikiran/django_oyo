@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "daisyui";
 /* Root-level templates */
 @source "../../templates";
 

@@ -1,7 +1,61 @@
-<nav class="bg-blue-600 text-white px-6 py-4">
-    <div class="container mx-auto">
-        <h1 class="text-xl font-bold">
-            My Django Application
-        </h1>
+
+<div class="navbar grid grid-cols-[auto_minmax(0,1fr)_auto] bg-[#111827] text-gray-100 border-b border-gray-800 shadow-lg px-6 min-h-20">
+
+    <!-- Brand -->
+    <div class="navbar-start w-auto">
+        <a href="/" class="text-xl font-bold tracking-wide text-white hover:text-blue-400 transition-colors">
+            <div class="flex flex-row items-center">
+            <img src="https://iconlogovector.com/uploads/images/2024/01/sm-659495f67ae98-oyo.webp" class="h-10" />
+            <p>MY OYO</p>
+            </div>
+        </a>
     </div>
-</nav>
+
+    <!-- Search Bar -->
+    <div class="navbar-center w-full min-w-0 px-6 justify-self-stretch">
+        <label class="input flex items-center gap-3 w-full max-w-lg min-w-0 bg-[#1f2937] border border-gray-700 rounded-xl text-gray-200 focus-within:border-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500/20">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="w-5 h-5 text-gray-400 shrink-0"
+            >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+            </svg>
+
+            <input
+                type="search"
+                name="q"
+                placeholder="Search anything..."
+                class="grow min-w-0 w-full bg-transparent text-sm text-white placeholder:text-gray-500 outline-none"
+            />
+        </label>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="navbar-end w-auto gap-2">
+        <small>Welcome, {{user.username}}</small>
+        <a href="/" class="btn btn-ghost btn-sm text-gray-300 hover:text-white hover:bg-gray-800">
+            Home
+        </a>
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="btn btn-ghost btn-sm text-gray-300 hover:text-white hover:bg-gray-800">
+            Logout
+        </a>
+        {%else%}
+        <a href="{% url 'login' %}" class="btn btn-ghost btn-sm text-gray-300 hover:text-white hover:bg-gray-800">
+            Login
+        </a>
+        {%endif%}
+
+        <a href="{% url 'register' %}" class="btn btn-primary btn-sm bg-blue-600 hover:bg-blue-500 text-white border-none rounded-lg px-5">
+            Register
+        </a>
+    </div>
+
+</div>
